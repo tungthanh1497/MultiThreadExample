@@ -16,4 +16,9 @@ public class Constants {
         long INSERT_DATA_LOCAL = 1600;
         long DO_ACTION = 1800;
     }
+
+    public static final int CORE_POOL_SIZE = 1;
+    public static final int MAXIMUM_POOL_SIZE = 5;
+    public static final int KEEP_ALIVE_TIME = 10;
+
 }

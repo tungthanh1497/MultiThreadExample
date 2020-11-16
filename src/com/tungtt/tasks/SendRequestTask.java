@@ -15,11 +15,25 @@ public class SendRequestTask extends BaseWorker {
 
     @Override
     public void run() {
-        System.out.println("SendRequestTask={" +
+        System.out.println(Thread.currentThread().getName() + " - Start SendRequestTask={" +
                 "priority=" + super.getPriority() +
                 ", name='" + super.getName() +
                 ", delayTime=" + super.getDelayTime() +
                 '}');
+        delay(super.getDelayTime());
+        System.out.println(Thread.currentThread().getName() + " - Finish SendRequestTask={" +
+                "priority=" + super.getPriority() +
+                ", name='" + super.getName() +
+                ", delayTime=" + super.getDelayTime() +
+                '}');
+    }
+
+    private void delay(long delayTime) {
+        try {
+            Thread.sleep(delayTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

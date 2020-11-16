@@ -15,11 +15,25 @@ public class GetDataTask extends BaseWorker {
 
     @Override
     public void run() {
-        System.out.println("GetDataTask={" +
+        System.out.println(Thread.currentThread().getName() + " - Start GetDataTask={" +
                 "priority=" + super.getPriority() +
                 ", name='" + super.getName() +
                 ", delayTime=" + super.getDelayTime() +
                 '}');
+        delay(super.getDelayTime());
+        System.out.println(Thread.currentThread().getName() + " - Finish GetDataTask={" +
+                "priority=" + super.getPriority() +
+                ", name='" + super.getName() +
+                ", delayTime=" + super.getDelayTime() +
+                '}');
+    }
+
+    private void delay(long delayTime) {
+        try {
+            Thread.sleep(delayTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
