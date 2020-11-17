@@ -6,15 +6,16 @@ package com.tungtt;
  */
 public abstract class BaseWorker {
 
+    private String name;
+    private int priority;
+    private long delayTime;
+    private OnTaskListener listener;
+
     public BaseWorker(String name, int priority, long delayTime) {
         this.name = name;
         this.priority = priority;
         this.delayTime = delayTime;
     }
-
-    private String name;
-    private int priority;
-    private long delayTime;
 
     public abstract void run();
 
@@ -28,6 +29,14 @@ public abstract class BaseWorker {
 
     public long getDelayTime() {
         return delayTime;
+    }
+
+    public OnTaskListener getListener() {
+        return listener;
+    }
+
+    public void setListener(OnTaskListener listener) {
+        this.listener = listener;
     }
 
     @Override

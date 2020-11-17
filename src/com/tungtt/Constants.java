@@ -10,15 +10,11 @@ import java.lang.annotation.RetentionPolicy;
 public class Constants {
     @Retention(RetentionPolicy.SOURCE)
     public @interface DELAY_TIME {
-        long SEND_REQUEST = 1000;
-        long UPLOAD = 1200;
-        long GET_DATA = 1400;
-        long INSERT_DATA_LOCAL = 1600;
-        long DO_ACTION = 1800;
+        long SEND_REQUEST = 600;
+        long UPLOAD = 700;
+        long GET_DATA = 800;
+        long INSERT_DATA_LOCAL = 900;
+        long DO_ACTION = 1000;
     }
-
-    public static final int CORE_POOL_SIZE = 1;
-    public static final int MAXIMUM_POOL_SIZE = 5;
-    public static final int KEEP_ALIVE_TIME = 10;
 
 }

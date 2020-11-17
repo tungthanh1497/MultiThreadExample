@@ -15,17 +15,15 @@ public class UploadTask extends BaseWorker {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " - Start UploadTask={" +
+        System.out.println(Thread.currentThread().getName() + " - {" +
                 "priority=" + super.getPriority() +
                 ", name='" + super.getName() +
                 ", delayTime=" + super.getDelayTime() +
-                '}');
+                "} - UploadTask");
         delay(super.getDelayTime());
-        System.out.println(Thread.currentThread().getName() + " - Finish UploadTask={" +
-                "priority=" + super.getPriority() +
-                ", name='" + super.getName() +
-                ", delayTime=" + super.getDelayTime() +
-                '}');
+        if (getListener() != null) {
+            getListener().onTaskFinished(this);
+        }
     }
 
     private void delay(long delayTime) {

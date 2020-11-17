@@ -15,17 +15,15 @@ public class InsertDataLocalTask extends BaseWorker {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + " - Start InsertDataLocalTask={" +
+        System.out.println(Thread.currentThread().getName() + " - {" +
                 "priority=" + super.getPriority() +
                 ", name='" + super.getName() +
                 ", delayTime=" + super.getDelayTime() +
-                '}');
+                "} - InsertDataLocalTask");
         delay(super.getDelayTime());
-        System.out.println(Thread.currentThread().getName() + " - Finish InsertDataLocalTask={" +
-                "priority=" + super.getPriority() +
-                ", name='" + super.getName() +
-                ", delayTime=" + super.getDelayTime() +
-                '}');
+        if (getListener() != null) {
+            getListener().onTaskFinished(this);
+        }
     }
 
     private void delay(long delayTime) {
